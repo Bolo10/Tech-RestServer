@@ -170,8 +170,7 @@ app.get('/impresora', (req, res) => {
                 } else(
                     res.json({
                         ok: true,
-                        impresoras,
-                        cantidad: cont,
+                        impresoras
 
 
                     }))
