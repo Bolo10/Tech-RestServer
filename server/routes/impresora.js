@@ -5,6 +5,19 @@ const _ = require('underscore')
 
 
 //BUSCA LA IMPRESORA POR SU ID 
+app.get('/', (req, res) => {
+    res.json({
+        nombre: "Erick Tapia",
+        materia: "PLATAFORMAS WEB",
+        carrera: "INGENIERIA EN CIENCIAS DE LA COMPUTACION",
+        profesor: "Rodrigo Tufiño",
+        actividad: "Prueba sobre RestServer-GrupoTech",
+        github: "https://github.com/Bolo10/Tech-RestServer",
+        heroku: "https://grupotech-tapiaerick.herokuapp.com/",
+        help: "Para acceder a los metodos get, post, put y delete colocar el enlace de heroku en postman get-> /impresora consulta todas las impresoras get -> /impresora/id busca impresora especifica post -> impresora/id agrega impresora a base put -> impresora/id actualiza datos de impresora en base delete -> impresora/id elimina de base"
+
+    });
+});
 app.get('/impresora/:id', (req, res) => {
     let id = req.params.id;
     Impresora.findById(id, (err, impresoras) => {
@@ -15,12 +28,21 @@ app.get('/impresora/:id', (req, res) => {
             });
         }
 
+        if (impresoras === null) {
+            msg = "No existe la impresora con ese ID"
+            res.json({
+                ok: true,
+                msg
 
-        res.json({
-            ok: true,
-            impresoras
+            })
+        } else {
+            res.json({
+                ok: true,
+                impresoras
 
-        })
+            })
+        }
+
 
 
 
