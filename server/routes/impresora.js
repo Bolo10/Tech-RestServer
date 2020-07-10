@@ -42,9 +42,9 @@ app.post('/impresora', (req, res) => {
 
     });
     if (req.body.color == "True" || "true" || "Verdadero" || "verdadero" || "1") {
-        body.color = true;
+        impresora.color = true;
     } else if (req.body.color === "False" || "false" || "Falso" || "falso" || "0") {
-        body.color = false;
+        impresora.color = false;
     }
     impresora.save((err, impresoraDB) => {
         if (err) {
