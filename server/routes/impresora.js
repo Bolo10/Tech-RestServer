@@ -132,6 +132,15 @@ app.get('/impresora', (req, res) => {
                 }
                 if (cont === 0) {
                     msg = "No existen impresoras"
+                    res.json({
+                        ok: true,
+                        impresoras,
+                        numeros: cont,
+                        msg
+
+
+                    })
+
                 } else(
                     res.json({
                         ok: true,
