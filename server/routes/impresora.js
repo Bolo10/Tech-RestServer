@@ -14,7 +14,8 @@ app.get('/', (req, res) => {
         actividad: "Prueba sobre RestServer-GrupoTech",
         github: "https://github.com/Bolo10/Tech-RestServer",
         heroku: "https://grupotech-tapiaerick.herokuapp.com/",
-        help: "Para acceder a los metodos get, post, put y delete colocar el enlace de heroku en postman get-> /impresora consulta todas las impresoras get -> /impresora/id busca impresora especifica post -> impresora/id agrega impresora a base put -> impresora/id actualiza datos de impresora en base delete -> impresora/id elimina de base"
+        // help: "Para acceder a los metodos get, post, put y delete colocar el enlace de heroku en postman get-> /impresora consulta todas las impresoras get -> /impresora/id busca impresora especifica post -> impresora/id agrega impresora a base put -> impresora/id actualiza datos de impresora en base delete -> impresora/id elimina de base",
+        ejemplo: "https://grupotech-tapiaerick.herokuapp.com/impresora"
 
     });
 });
@@ -167,7 +168,7 @@ app.get('/impresora', (req, res) => {
                     res.json({
                         ok: true,
                         impresoras,
-                        numeros: cont,
+                        cantidad: cont,
 
 
                     }))
