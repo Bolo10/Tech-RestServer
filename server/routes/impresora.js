@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
     res.json({
         nombre: "Erick Tapia",
         materia: "PLATAFORMAS WEB",
-        carrera: "INGENIERIA EN CIENCIAS DE LA COMPUTACION",
+        carrera: "INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN",
         profesor: "Rodrigo Tufiño",
         actividad: "Prueba sobre RestServer-GrupoTech",
         github: "https://github.com/Bolo10/Tech-RestServer",
@@ -83,7 +83,7 @@ app.put('/impresora/:id', (req, res) => {
     let id = req.params.id;
 
 
-    let body = _.pick(req.body, ['marca', 'modelo', 'serie', 'color', 'ip', 'contador', 'precio']); //filtrado de datos usando libreria underscore
+    let body = _.pick(req.body, ['modelo', 'color', 'ip', 'precio']); //filtrado de datos usando libreria underscore
 
     if (req.body.color == "True" || "true" || "Verdadero" || "verdadero" || "1") {
         body.color = true;
@@ -98,9 +98,12 @@ app.put('/impresora/:id', (req, res) => {
                 err
             })
         }
-        res.json({
-            ok: true,
-            impresora: impresoraDB
+        nid = id;
+        Impresora.findById(nid, (err2, obtenida) => {
+            if (err2) {
+                return res.status(400).json({ ok: false, err2 });
+            }
+            res.json({ ok: true, impresora: obtenida })
         })
     });
 });

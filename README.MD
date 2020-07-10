@@ -10,17 +10,17 @@ npm install
 ```
 ## Despliegue Ejemplo 📦
 
-_Para el desplieque de la API ingresa a Postman y ejecuta la url con su respectivo metodo_
+_Para el desplieque de la API ingresa a Postman y ejecuta la url con su respectivo método_
 
-_GET -> Buscar una impresora en especifico_
+_GET -> Buscar una impresora en específico_
 ```
 https://grupotech-tapiaerick.herokuapp.com/impresora/5f08cf5dbf406600178c7a19
 ```
-_POST -> Insertar una impresora a la base de datos e ingresa los atributos en la seccion Body - x-www-form-urlencoded_
+_POST -> Insertar una impresora a la base de datos e ingresa los atributos en la sección Body - x-www-form-urlencoded_
 ```
 https://grupotech-tapiaerick.herokuapp.com/impresora
 ```
-_PUT -> Actualizar informacion de una impresora y edita los atributos en la seccion Body - x-www-form-urlencoded_
+_PUT -> Actualizar información de una impresora y edita los atributos en la sección Body - x-www-form-urlencoded_
 ```
 https://grupotech-tapiaerick.herokuapp.com/impresora/5f08cf5dbf406600178c7a19
 ```
