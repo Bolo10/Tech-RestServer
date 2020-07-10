@@ -41,6 +41,11 @@ app.post('/impresora', (req, res) => {
         precio: body.precio
 
     });
+    if (req.body.color == "True" || "true" || "Verdadero" || "verdadero" || "1") {
+        body.color = true;
+    } else if (req.body.color === "False" || "false" || "Falso" || "falso" || "0") {
+        body.color = false;
+    }
     impresora.save((err, impresoraDB) => {
         if (err) {
             return res.status(400).json({ ok: false, err });
@@ -56,16 +61,13 @@ app.put('/impresora/:id', (req, res) => {
 
 
     let body = _.pick(req.body, ['marca', 'modelo', 'serie', 'color', 'ip', 'contador', 'precio']); //filtrado de datos usando libreria underscore
-    console.log(req.body.color);
+
     if (req.body.color == "True" || "true" || "Verdadero" || "verdadero" || "1") {
         body.color = true;
     } else if (req.body.color === "False" || "false" || "Falso" || "falso" || "0") {
         body.color = false;
     }
-    console.log(req.body.color);
-    //delete body.password
-    //delete body.google
-    console.log(body);
+
     Impresora.findByIdAndUpdate(id, body, { new: true, runValidators: true, context: 'query' }, (err, impresoraDB) => {
         if (err) {
             return res.status(400).json({
@@ -134,8 +136,6 @@ app.get('/impresora', (req, res) => {
                     msg = "No existen impresoras"
                     res.json({
                         ok: true,
-                        impresoras,
-                        numeros: cont,
                         msg
 
 
